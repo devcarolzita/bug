@@ -56,15 +56,15 @@ a {
 }
 
 .burguer-build-title {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
 }
 
 .burguer-build-container-img {
   width: 50%;
   animation: show, swing infinite;
-  animation-duration: 1s 7s;
-  animation-delay: 0s 1s;
+  animation-duration: 1s, 7s;
+  animation-delay: 0s, 1s;
   transition: 300ms ease;
 }
 
@@ -83,25 +83,104 @@ a {
 }
 
 @keyframes swing {
- 0% {
-  transform: translatey(0px);
- }
- 50% {
-  transform: translatey(-20px);
- }
- 100% {
-  transform: translatey(0px);
+  0% {
+    transform: translatey(0px);
+  }
 
- }
+  50% {
+    transform: translatey(-20px);
+  }
+
+  100% {
+    transform: translatey(0px);
+
+  }
 }
+
 button {
   background-color: #453aa0;
   padding: 10px;
   border-radius: 100px;
   border: none;
   margin-top: 20px;
+  color: white;
 }
 
 .burguer-build-btn {
   color: white;
+}
+
+.burguer-build-summary {
+  width: 25%;
+}
+
+.burguer-build-summary-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.burguer-build-summary-price {
+  display: flex;
+  align-items: end;
+  gap: 20px;
+}
+
+.burguer-build-sub {
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 100px;
+  height: 7vh;
+  background-color: #f5f6fe;
+  margin-top: 20px;
+  padding: 0 20px;
+  align-items: flex-end;
+}
+
+.burguer-build-sub-itens {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.burguer-build-sub-itens:nth-child(1) {
+  width: 38%;
+}
+
+.ingredients-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+ 
+}
+
+.ingredient-img {
+  width: 150px;
+}
+
+.ingredient {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #cfedfe;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 2rem;
+}
+
+.ingredient-count {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+
+}
+
+.ingredients-box {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #f5f6fe;
+  color: #453aa0;
+
 }
