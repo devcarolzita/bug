@@ -54,6 +54,12 @@ const insertImgIngredient = (valueImg) => {
   imgIngredient.classList.add('burguer-build-ingredients-img');
   boxIngredient.appendChild(imgIngredient);
 
+  if(document.querySelectorAll('.burguer-build-ingredients img').length > 10){
+    boxIngredient.classList.add('prensadao');
+  } else {
+    boxIngredient.classList.remove('prensadao')
+  }
+
 }
 const addQuantityBoxIngredient = () => {
   const sumButtons = document.querySelectorAll('.ingredient-count-box-sum');

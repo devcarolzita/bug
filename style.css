@@ -67,6 +67,7 @@ a {
   animation-duration: 1s, 7s;
   animation-delay: 0s, 1s;
   transition: 300ms ease;
+  margin-top: 200px;
 }
 
 @keyframes show {
@@ -189,6 +190,10 @@ button {
   display: flex;
   flex-direction: column-reverse;
   align-self: end;
+  &.prensadao {
+    transform: scaley(0.3);
+    transform-origin: bottom;
+  }
 }
 .burguer-build-ingredients-img {
   animation: show 0.4s;
