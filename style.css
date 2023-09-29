@@ -49,6 +49,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 50vh;
 }
 
 .burguer-build-container-box {
@@ -182,5 +183,24 @@ button {
   cursor: pointer;
   background-color: #f5f6fe;
   color: #453aa0;
+}
 
+.burguer-build-ingredients {
+  display: flex;
+  flex-direction: column-reverse;
+  align-self: end;
+}
+.burguer-build-ingredients-img {
+  animation: show 0.4s;
+  z-index: 1;
+  margin-bottom: -100px;
+  &.cebola {
+    margin-bottom: -201px;
+  }
+  &.molho {
+    margin-bottom: -150px;
+  }
+  &.hamburguer {
+    margin-bottom: -150px;
+  }
 }

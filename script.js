@@ -28,7 +28,6 @@ const createItensBox = (nameIngredient) => {
   const ingredient = createItem('div', 'ingredient');
   const imgIngredient = createItem('img', 'ingredient-img');
   imgIngredient.src = `./images/${nameIngredient}.png`;
-  console.log(imgIngredient);
   imgIngredient.id = nameIngredient;
   const titleIngredient = createItem('p', 'ingredient-title');
   titleIngredient.innerText = nameIngredient
@@ -42,12 +41,39 @@ const createItensBox = (nameIngredient) => {
   boxIngredientCount.append(createBoxItemIngredient('sub', '-'), ingredientCountNumber, createBoxItemIngredient('sum', '+'));
 }
 
-
 const renderItemBox = (arrayItens) => {
   arrayItens.forEach(element => {
     createItensBox(element.nameIngredient);
   });
 }
+
+const insertImgIngredient = (valueImg) => {
+  const boxIngredient = document.querySelector('.burguer-build-ingredients');
+  const imgIngredient = createItem('img', valueImg);
+  imgIngredient.src = `./images/${valueImg}.png`;
+  imgIngredient.classList.add('burguer-build-ingredients-img');
+  boxIngredient.appendChild(imgIngredient);
+
+}
+const addQuantityBoxIngredient = () => {
+  const sumButtons = document.querySelectorAll('.ingredient-count-box-sum');
+  sumButtons.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        const countNumber = event.target.parentElement.previousElementSibling;
+        const nameImg = countNumber.parentElement.parentElement.firstChild.id;
+        insertImgIngredient(nameImg);
+        let currentCount = parseInt(countNumber.textContent);
+        currentCount+=1;
+        countNumber.textContent = currentCount;
+        // const nameImg = countNumber.
+      })
+  })
+}
+
+const deleteQuantityBoxIngredient = () => {
+  
+}
 window.onload = () => {
   renderItemBox(ingredients);
+  addQuantityBoxIngredient()
 }
