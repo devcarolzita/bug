@@ -62,18 +62,60 @@ const addQuantityBoxIngredient = () => {
         const countNumber = event.target.parentElement.previousElementSibling;
         const nameImg = countNumber.parentElement.parentElement.firstChild.id;
         insertImgIngredient(nameImg);
+        addTotalBalance(nameImg, ingredients)
         let currentCount = parseInt(countNumber.textContent);
         currentCount+=1;
         countNumber.textContent = currentCount;
-        // const nameImg = countNumber.
       })
   })
 }
 
 const deleteQuantityBoxIngredient = () => {
-  
+  const subButtons = document.querySelectorAll('.ingredient-count-box-sub');
+  subButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const countNumber = event.target.parentElement.nextElementSibling;
+      const nameImg = countNumber.parentElement.parentElement.firstElementChild.id;
+      let currentCount = parseInt(countNumber.textContent);
+      currentCount-=1;
+      if(currentCount < 0) return;
+      countNumber.textContent = currentCount;
+      deleteImgIngredient(nameImg);
+      deleteTotalBalance(nameImg, ingredients);
+    })
+  })
 }
+
+const addTotalBalance = (nameImg, objIngredient) => {
+  const totalBalance = document.querySelector('#totalBalance');
+  for (let index = 0; index < objIngredient.length; index+=1) {
+    const element = objIngredient[index];
+    if(element.nameIngredient === nameImg){
+      totalBalance.innerText = parseInt(totalBalance.textContent) + element.price;
+    }
+    
+  }
+}
+
+const deleteImgIngredient = (nameIngredient) => {
+  const imgIngredients = document.querySelectorAll('.burguer-build-ingredients-img');
+  const element = [...imgIngredients].find((img) => img.classList.contains(nameIngredient));
+  element.remove()
+}
+
+const deleteTotalBalance = (elementName, objIngredient) => {
+  const totalBalance = document.querySelector('#totalBalance');
+  for (let index = 0; index < objIngredient.length; index+=1) {
+    const element = objIngredient[index];
+    if(element.nameIngredient === elementName){
+      totalBalance.innerText = parseInt(totalBalance.textContent) - element.price;
+    }
+    
+  }
+}
+
 window.onload = () => {
   renderItemBox(ingredients);
-  addQuantityBoxIngredient()
+  addQuantityBoxIngredient();
+  deleteQuantityBoxIngredient()
 }
